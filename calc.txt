@@ -1,0 +1,63 @@
+jmp MAIN                /* jump to MAIN */
+
+INPUT:                  /* a function to take inputs */
+    prs "Enter number 1: "
+    inp &1
+    prs "Enter number 2: "
+    inp &2
+    ret
+    
+MAIN:                    /* execution starts here */
+    prs "Enter\n"
+    prs "  1 to add\n"
+    prs "  2 to suntract\n"
+    prs "  3 to multiply\n"
+    prs "  4 to divide\n"
+    prs "  0 to quit\n"
+    prs "Enter: "
+    
+    inp &0               /* take input of choice */
+    ieq &0, $0           /* compare choice with 0 */
+    jit END              /* end if choice is 0 */
+    ieq &0, $1
+    jit ADD
+    ieq &0, $2
+    jit SUB
+    ieq &0, $3
+    jit MUL
+    ieq &0, $4
+    jit DIV
+    prs "Invalid input\n"
+    jmp LOOP
+    
+ADD:
+    call INPUT
+    add &1, &2
+    jmp OUTPUT
+    
+SUB:
+    call INPUT
+    sub &1, &2
+    jmp OUTPUT
+    
+MUL:
+    call INPUT
+    mul &1, &2
+    jmp OUTPUT
+    
+DIV:
+    call INPUT
+    div &1, &2 
+    jmp OUTPUT
+    
+OUTPUT:
+    prs "Result = "
+    prn &1
+    nwl
+    
+LOOP:
+    jmp MAIN
+    
+END:
+    prs "Quit\n"
+    end

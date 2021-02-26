@@ -1,0 +1,8 @@
+prs "Enter pointer value: "
+inp $ptr
+prs "Enter value to be stored: "
+inp &ptr
+prs "Output = "
+prn &ptr
+nwl
+end

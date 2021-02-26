@@ -1,0 +1,25 @@
+jmp MAIN
+
+FACT:
+    ieq %d $0
+    jit isZero
+    ieq %d $1
+    jit isOne
+    mul %a %d
+    sub %d $1
+    call FACT
+    isOne:
+        ret
+    isZero:
+        set %a $1
+        ret
+
+MAIN:
+    prs "Enter number, to find factorial: "
+    inp %d
+    set %a $1
+    call FACT
+    prs "Result = "
+    prn %a
+    nwl
+    end
