@@ -1,11 +1,14 @@
+/* set ram size */
+ram $2
+
 /* number of times to print */
 set %d $0a
 
 /* char to print */
-set &f0 $0x40
+set &0 $0x40
 
 /* space bw chars */
-set &f1 $0x20
+set &1 $0x20
 
 /* compare i and j reg ie %a and %b 
  * with %d which is set to 10
@@ -17,9 +20,9 @@ iLoop:
 jLoop:
     ieq %d %b
     jit jEnd
-    set %c &f0
+    set %c &0
     prc %c
-    set %c &f1
+    set %c &1
     prc %c
     add %b $1
     jmp jLoop
