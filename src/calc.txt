@@ -1,3 +1,4 @@
+ram $5                  /* setting up required ram size */
 jmp MAIN                /* jump to MAIN */
 
 INPUT:                  /* a function to take inputs */
